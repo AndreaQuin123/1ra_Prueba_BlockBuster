@@ -170,20 +170,22 @@ public class Main extends javax.swing.JFrame {
         try {
             code = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el codigo del item que desea buscar"));
             
-            String tipo = JOptionPane.showInputDialog("Ingrese el tipo del item que desea buscar\n\nMovie\nGame");
+            String tipo = JOptionPane.showInputDialog("Ingrese el tipo del item que desea agregar\n\nMovie\nGame");
+            
+            tipo = tipo.toUpperCase();
             
             String nombre = JOptionPane.showInputDialog("Ingrese el nombre del item que desea agregar");
             
             blockbuster.agregarItem(code, nombre, tipo);
-        } catch (Exception e){
+            
+        } catch (NumberFormatException e){
+            
             JOptionPane.showMessageDialog(null, "El codigo no es valido. Intente de nuevo");
         }
-        
-        code = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el codigo del item que desea buscar"));
-        String tipo = JOptionPane.showInputDialog("Ingrese el tipo del item que desea buscar\n\nMovie\nGame");
     }//GEN-LAST:event_agregarActionPerformed
 
     private void rentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentarActionPerformed
+       
         int code;
         String tipo;
         int dias;

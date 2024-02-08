@@ -57,7 +57,7 @@ public abstract class BlockBusterItem {
     
     @Override
     public String toString(){
-        return this.codigo + this.nombre + this.renta;
+        return "Codigo: "+this.codigo+ "Nombre: "+ this.nombre+"Renta: " + this.renta;
     }
     
     public abstract double pagoRenta(int dias);

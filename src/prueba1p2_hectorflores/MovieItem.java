@@ -27,7 +27,7 @@ public class MovieItem extends BlockBusterItem {
 
     @Override
     public String toString() {
-        return super.toString() + "Estado: " + estado + "-Movie";
+        return super.toString() + "Estado: " + estado + "- Movie";
     }
 
     @Override

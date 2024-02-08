@@ -18,16 +18,14 @@ public class BlockBuster {
         items = new ArrayList<>();
     }
     
-    public BlockBusterItem buscarItem(int codigo, String tipo){
-        
-        for (BlockBusterItem item : items){
-            if (item.getCodigo() == codigo && item instanceof MovieItem && tipo.equals("MOVIE")) {
-                JOptionPane.showMessageDialog(null, "Se encontro el siguiente item:\n" + item.toString());
-                return item;
-            } else if (item.getCodigo() == codigo && item instanceof VideoGameItem && tipo.equals("GAME")) {
-                JOptionPane.showMessageDialog(null, "Se encontro el siguiente item:\n" + item.toString());
-                return item;
-            } 
+    public BlockBusterItem buscarItem(int codigo, String tipo) {
+        for (BlockBusterItem item : items) {
+            if (item.getCodigo() == codigo) {
+                if ((item instanceof MovieItem && tipo.equalsIgnoreCase("MOVIE")) || (item instanceof VideoGameItem && tipo.equalsIgnoreCase("GAME"))) {
+                   JOptionPane.showMessageDialog(null, item.toString());
+                   return item;
+                }
+            }
         }
         
         JOptionPane.showMessageDialog(null, "No se encontro el item");
@@ -37,10 +35,11 @@ public class BlockBuster {
     public void agregarItem(int codigo, String nombre, String tipoItem){
         
         if (buscarItem(codigo, tipoItem) == null){
-            if (tipoItem.equals("MOVIE")){
+            if (tipoItem.equalsIgnoreCase("MOVIE")){
                 MovieItem peli = new MovieItem(codigo, nombre);
                 items.add(peli);
                 JOptionPane.showMessageDialog(null, "Peli agregada");
+                
             } else {
                 
                 String consola = JOptionPane.showInputDialog("Ingrese el nombre de la consola\nXBOX, PLAYSTATION o WII");
